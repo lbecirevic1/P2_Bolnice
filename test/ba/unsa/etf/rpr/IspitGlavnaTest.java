@@ -72,7 +72,7 @@ public class IspitGlavnaTest {
         assertNotNull(sarajevo);
         assertTrue(sarajevo instanceof NerazvijeniGrad);
 
-        assertEquals(35, sarajevo.brojBolnica());
+        assertEquals(4, sarajevo.brojBolnica());
     }
 
     @Test
@@ -98,7 +98,7 @@ public class IspitGlavnaTest {
         // Da li je Graz nerazvijeni grad?
         Grad graz2 = dao.nadjiGrad("Graz");
         assertTrue(graz2 instanceof NerazvijeniGrad);
-        assertEquals(28, graz2.brojBolnica());
+        assertEquals(3, graz2.brojBolnica());
     }
 
 

@@ -12,6 +12,6 @@ public class NerazvijeniGrad extends Grad {
 
     @Override
     public int brojBolnica() {
-        return (getBrojStanovnika()+99999) / 100000;
+        return (getBrojStanovnika() + 99999) / 100000;
     }
 }

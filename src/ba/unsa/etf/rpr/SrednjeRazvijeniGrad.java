@@ -12,6 +12,6 @@ public class SrednjeRazvijeniGrad extends Grad {
 
     @Override
     public int brojBolnica() {
-        return (getBrojStanovnika()+24999) / 25000;
+        return (getBrojStanovnika() + 24999) / 25000;
     }
 }

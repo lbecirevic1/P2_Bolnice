@@ -29,7 +29,7 @@ public class IspitDAOTest {
         assertEquals(9, b3.brojBolnica());
     }
 
-   @Test
+    @Test
     void testDodajGrad() {
         GeografijaDAO.removeInstance();
         File dbfile = new File("baza.db");
@@ -95,9 +95,9 @@ public class IspitDAOTest {
         assertNotNull(d2);
 
         Grad s3 = d2.getGlavniGrad();
-        assertTrue(s2 instanceof NerazvijeniGrad);
-        assertEquals(35, s3.brojBolnica());
-}
+        assertTrue(s3 instanceof NerazvijeniGrad);
+        assertEquals(4, s3.brojBolnica());
+    }
 
 
     @Test
@@ -117,8 +117,8 @@ public class IspitDAOTest {
 
         assertTrue(s2 instanceof SrednjeRazvijeniGrad);
 
-        RazvijeniGrad l2 = new RazvijeniGrad(leeds.getId(), "Leeds", 350000, vb);
-        dao.izmijeniGrad(l2);;
+        RazvijeniGrad l2 = new RazvijeniGrad(s2.getId(), "Leeds", 350000, vb);
+        dao.izmijeniGrad(l2);
 
         Grad s3 = dao.nadjiGrad("Leeds");
         assertNotNull(s3);
