@@ -16,16 +16,25 @@ public class GradController {
     public ChoiceBox<Drzava> choiceDrzava;
     public ChoiceBox choiceTipGrada;
     public ObservableList<Drzava> listDrzave;
+    public ArrayList<String> lista = new ArrayList<>();
+    public ObservableList<String> listaZaChoiceBox;
     private Grad grad;
 
     public GradController(Grad grad, ArrayList<Drzava> drzave) {
         this.grad = grad;
         listDrzave = FXCollections.observableArrayList(drzave);
+        lista.add("Razvijen");
+        lista.add("Srednje razvijen");
+        lista.add("Nerazvijen");
+        listaZaChoiceBox = FXCollections.observableArrayList(lista);
+
     }
 
     @FXML
     public void initialize() {
         choiceDrzava.setItems(listDrzave);
+        choiceTipGrada.setItems(listaZaChoiceBox);
+        choiceTipGrada.setValue("Razvijen");
         if (grad != null) {
             fieldNaziv.setText(grad.getNaziv());
             fieldBrojStanovnika.setText(Integer.toString(grad.getBrojStanovnika()));
@@ -84,19 +93,19 @@ public class GradController {
         if (!sveOk) return;
 
         // Čuvamo id da bismo mogli kreirati novi Grad
-        int oldId = 0;
-        if (grad != null) oldId = grad.getId();
+        int idGrada = 0;
+        if (grad != null) idGrada = grad.getId();
 
         if (choiceTipGrada.getValue().equals("Razvijen"))
-            grad = new RazvijeniGrad();
+            grad = new RazvijeniGrad(idGrada, fieldNaziv.getText(), Integer.parseInt(fieldBrojStanovnika.getText()),choiceDrzava.getValue());
         else if (choiceTipGrada.getValue().equals("Srednje razvijen"))
-            grad = new SrednjeRazvijeniGrad();
+            grad = new SrednjeRazvijeniGrad(idGrada, fieldNaziv.getText(), Integer.parseInt(fieldBrojStanovnika.getText()),choiceDrzava.getValue());
         else
-            grad = new NerazvijeniGrad();
-        grad.setId(oldId);
-        grad.setNaziv(fieldNaziv.getText());
-        grad.setBrojStanovnika(Integer.parseInt(fieldBrojStanovnika.getText()));
-        grad.setDrzava(choiceDrzava.getValue());
+            grad = new NerazvijeniGrad(idGrada, fieldNaziv.getText(), Integer.parseInt(fieldBrojStanovnika.getText()),choiceDrzava.getValue());
+//        grad.setId(idGrada);
+//        grad.setNaziv(fieldNaziv.getText());
+//        grad.setBrojStanovnika(Integer.parseInt(fieldBrojStanovnika.getText()));
+//        grad.setDrzava(choiceDrzava.getValue());
         Stage stage = (Stage) fieldNaziv.getScene().getWindow();
         stage.close();
     }

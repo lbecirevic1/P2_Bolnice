@@ -37,14 +37,7 @@
       <Label text="Država:" GridPane.rowIndex="2" />
       <ChoiceBox fx:id="choiceDrzava" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
       <Label text="Tip grada:" GridPane.rowIndex="3" />
-      <ChoiceBox fx:id="choiceTipGrada" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3" value="Razvijen">
-         <items>
-            <FXCollections fx:factory="observableArrayList">
-               <String fx:value="Razvijen" />
-               <String fx:value="Srednje razvijen" />
-               <String fx:value="Nerazvijen" />
-            </FXCollections>
-         </items>
+      <ChoiceBox fx:id="choiceTipGrada" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
       </ChoiceBox>
       <ButtonBar prefHeight="40.0" prefWidth="200.0" GridPane.columnSpan="2" GridPane.rowIndex="4">
          <buttons>
